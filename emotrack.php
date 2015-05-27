@@ -19,6 +19,9 @@
                 ACTION POINT TO SELF (CONFIRMATION - OR ERROR - PAGE, LINK TO "Track another emotion" and "View my report"
                 ----------------------------------------------------------->
 <?php
+
+
+
 try{
     $dbc = new PDO('mysql:host=localhost;dbname=w0601463db', DB_USER, DB_PASSWORD) or die("error");
     $dbc->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -62,6 +65,11 @@ else { ?>
             <option value="other">Other</option>
         </select>
     <?php
+	
+			// Declare date and time variables
+			$date = date('Y-m-d');
+			$time = date('g:i A');
+	
             // NEEDS AN "ON CHANGE" FUNCTION ------------------------------------------------------------
         if ('q1' == 'other') {
             echo "Please specify: <input type='text' name='q1other' /> <br /><br />";
@@ -103,11 +111,11 @@ else { ?>
     ?>
 
         <label for="q4">Date:</label>
-        <input type="date" name="q4" />
+        <input type="date" name="q4" value="<?PHP echo $date; ?>"/>
         <br /><br />
 
         <label for="q5">Current Time:</label>
-        <input type="time" name="q5" />
+        <input type="text" name="q5" value="<?PHP echo $time; ?>" />
         <br /><br />
 
         <label for="q6">Duration:</label>

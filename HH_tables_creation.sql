@@ -33,6 +33,7 @@ CREATE TABLE durations (
 
 CREATE TABLE moments (
 	m_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	user_id INT NOT NULL,
 	symptom VARCHAR (40) NOT NULL,
 	cause VARCHAR (40) NOT NULL,
 	severity VARCHAR(40) NOT NULL,
